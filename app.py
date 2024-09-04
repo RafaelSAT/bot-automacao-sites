@@ -17,46 +17,24 @@ sheet_produtos = workbook['Produtos']
 
 dados = []
 
-""" for linha in sheet_produtos.iter_rows(min_row=2):
-    dados.append(linha[0].value)
-    dados.append(linha[1].value)
-    dados.append(linha[2].value)
-    dados.append(linha[3].value)
-    dados.append(linha[4].value)
-    dados.append(linha[5].value)
-    dados.append(linha[6].value)
-    dados.append(linha[7].value)
-    dados.append(linha[8].value)
-    dados.append(linha[9].value)
-    dados.append(linha[10].value)
-    dados.append(linha[11].value)
-    dados.append(linha[12].value)
-    dados.append(linha[13].value)
-    dados.append(linha[14].value)
-    dados.append(linha[15].value)
-    dados.append(linha[16].value) """
-
 for linha in sheet_produtos.iter_rows(min_row=2, max_row=4):
     dados.append({'casa1' : linha[0].value,
-             'casa2' : linha[1].value,
-             'casa3' : linha[2].value,
-             'casa4' : linha[3].value,
-             'casa5' : linha[4].value,
-             'casa6' : linha[5].value,
-             'casa7' : linha[6].value,
-             'casa8' : linha[7].value,
-             'casa9' : linha[8].value,
-             'casa10' : linha[9].value,
-             'casa11' : linha[10].value,
-             'casa12' : linha[11].value,
-             'casa13' : linha[12].value,
-             'casa14' : linha[13].value,
-             'casa15' : linha[14].value,
-             'casa16' : linha[15].value,
-             'casa17' : linha[16].value,})
-
-for dado in dados:
-    print(dado['casa1'])
+             'descricao' : linha[1].value,
+             'categoria' : linha[2].value,
+             'codigo_produto' : linha[3].value,
+             'peso' : linha[4].value,
+             'dimensao' : linha[5].value,
+             'preco' : linha[6].value,
+             'qtd_estoque' : linha[7].value,
+             'data_validade' : linha[8].value,
+             'cor' : linha[9].value,
+             'tamanho' : linha[10].value,
+             'material' : linha[11].value,
+             'fabricante' : linha[12].value,
+             'pais' : linha[13].value,
+             'observacoes' : linha[14].value,
+             'codigo_barras' : linha[15].value,
+             'localizacao_armazen' : linha[16].value,})
 
 sg.theme('Reddit')
 #sg.Push() serve para centralizar o elemento, para isto coloque em ambos os lados
@@ -102,19 +80,19 @@ while True:
             digitar_naturalmente(dado['casa1'], nome_produto)
 
             descricao = driver.find_element(By.ID, "description")
-            digitar_naturalmente(dado['casa2'], descricao)
+            digitar_naturalmente(dado['descricao'], descricao)
 
             categoria = driver.find_element(By.ID, "category")
-            digitar_naturalmente(dado['casa3'], categoria)
+            digitar_naturalmente(dado['categoria'], categoria)
 
             codigo_produto = driver.find_element(By.ID, "product_code")
-            digitar_naturalmente(dado['casa4'], codigo_produto)
+            digitar_naturalmente(dado['codigo_produto'], codigo_produto)
 
             peso = driver.find_element(By.ID, "weight")
-            digitar_naturalmente(str(dado['casa5']), peso)
+            digitar_naturalmente(str(dado['peso']), peso)
 
             dimensao = driver.find_element(By.ID, "dimensions")
-            digitar_naturalmente(str(dado['casa6']), dimensao)
+            digitar_naturalmente(str(dado['dimensao']), dimensao)
 
             btn_proximo = driver.find_element(By.XPATH, "//button[@class='btn btn-primary me-2']")
             driver.execute_script('arguments[0].click()', btn_proximo)
@@ -122,22 +100,22 @@ while True:
             sleep(4)
 
             preco = driver.find_element(By.ID, "price")
-            digitar_naturalmente(str(dado['casa7']), preco)
+            digitar_naturalmente(str(dado['preco']), preco)
 
             qtd_estoque = driver.find_element(By.ID, "stock")
-            digitar_naturalmente(str(dado['casa8']), qtd_estoque)
+            digitar_naturalmente(str(dado['qtd_estoque']), qtd_estoque)
 
             data_validade = driver.find_element(By.ID, "expiry_date")
-            digitar_naturalmente(str(dado['casa9']), data_validade)
+            digitar_naturalmente(str(dado['data_validade']), data_validade)
 
             cor = driver.find_element(By.ID, "color")
-            digitar_naturalmente(str(dado['casa10']), cor)
+            digitar_naturalmente(str(dado['cor']), cor)
 
             tamanho = driver.find_element(By.ID, "size")
-            digitar_naturalmente(str(dado['casa11']), tamanho)
+            digitar_naturalmente(str(dado['tamanho']), tamanho)
 
             material = driver.find_element(By.ID, "material")
-            digitar_naturalmente(str(dado['casa12']), material)
+            digitar_naturalmente(str(dado['material']), material)
 
             btn_proximo = driver.find_element(By.XPATH, "//button[@class='btn btn-primary me-2']")
             driver.execute_script('arguments[0].click()', btn_proximo)
@@ -145,19 +123,19 @@ while True:
             sleep(4)
 
             fabricante = driver.find_element(By.ID, "manufacturer")
-            digitar_naturalmente(str(dado['casa13']), fabricante)
+            digitar_naturalmente(str(dado['fabricante']), fabricante)
 
             pais = driver.find_element(By.ID, "country")
-            digitar_naturalmente(str(dado['casa14']), pais)
+            digitar_naturalmente(str(dado['pais']), pais)
 
             observacoes = driver.find_element(By.ID, "remarks")
-            digitar_naturalmente(str(dado['casa15']), observacoes)
+            digitar_naturalmente(str(dado['observacoes']), observacoes)
 
             codigo_barras = driver.find_element(By.ID, "barcode")
-            digitar_naturalmente(str(dado['casa16']), codigo_barras)
+            digitar_naturalmente(str(dado['codigo_barras']), codigo_barras)
 
             localizacao_armazen = driver.find_element(By.ID, "warehouse_location")
-            digitar_naturalmente(str(dado['casa17']), localizacao_armazen)
+            digitar_naturalmente(str(dado['localizacao_armazen']), localizacao_armazen)
 
             btn_proximo = driver.find_element(By.XPATH, "//button[@class='btn btn-primary me-2']")
             driver.execute_script('arguments[0].click()', btn_proximo)
