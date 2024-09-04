@@ -42,10 +42,10 @@ layout = [
     [sg.Push(),sg.Button(button_text='Iniciar Automação'),sg.Push()]    
 ]
 
-window = sg.Window('Inserir dados NF em site', layout)
+window = sg.Window('Inserir dados em site', layout)
 
 edge_options = Options()
-arguments = ['--lang=pt-BR', 'window-size=1000,1000', '--incognito']
+arguments = ['--lang=pt-BR', 'window-size=1300,1000', '--incognito']
 for argument in arguments:
     edge_options.add_argument(argument)
 
